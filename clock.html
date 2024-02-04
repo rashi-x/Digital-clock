@@ -1,0 +1,64 @@
+<html>
+<head>
+    <style>
+    body {
+    background: black;
+    color: #f5dada;
+}
+
+#showd {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #17D4FE;
+    font-size: 55px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 6px;
+    line-height: 1.7;
+    text-shadow: 3px 3px 8px rgba(240, 218, 218, 0.7);
+    padding: 10px;
+    box-shadow: 5px 5px 35px rgba(232, 231, 235, 0.5);
+    border-radius: 20px;;
+}
+
+
+    </style>
+    <script>
+        function showClock()
+        {
+            var dt = new Date();
+            var date = dt.getDate();
+            var month =dt.getMonth(); 
+            month++;
+            var year = dt.getFullYear();
+            var hours =dt.getHours();
+            var min = dt.getMinutes();
+            var sec = dt.getSeconds();
+            var ampm="";
+            if(hours>12)
+              {  hours= hours-12;
+            ampm="pm";
+              }
+            else
+            ampm="am";
+              
+            var dislay = show(date)+"-"+show(month)+"-"+show(year) + " "+ show(hours)+":"+
+            show(min)+":"+show(sec);
+            setTimeout(showClock, 1000);
+            document.getElementById("showd").innerHTML=dislay;
+            
+        }
+        function show(x)
+        {
+            if(x < 10) {
+            return "0"+x;
+            }
+            return x;
+        }
+    </script>
+</head>
+<body onload="showClock()">
+    <div id="showd"></div>
+</body>
+</html>
